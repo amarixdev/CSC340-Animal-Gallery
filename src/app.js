@@ -49,46 +49,42 @@ function setTextColor(element, color) {
         detailsButton.href = `details.html?color=${color}`;
     }
 }
-// color buttons
-['r','o','y','g','b','i','v','w','k'].forEach(key => {
+
+// Define color mapping
+const colorButtons = {
+    'r': 'red', 'o': 'orange', 'y': 'yellow', 'g': 'green',
+    'b': 'blue', 'i': 'indigo', 'v': 'violet',
+    'w': 'white', 'k': 'black'
+};
+
+function updateButtonColors(selectedKey) {
+    // Reset all buttons to default color
+    Object.keys(colorButtons).forEach(key => {
+        document.getElementById(`color-btn-${key}`).className = 'text-[#c9c9c9] active:scale-95 transition-all duration-100';
+    });
+    
+    // Set selected button to white
+    document.getElementById(`color-btn-${selectedKey}`).className = 'text-white active:scale-95 transition-all duration-100';
+}
+
+// Set up click handlers for color buttons
+Object.entries(colorButtons).forEach(([key, color]) => {
     document.getElementById(`color-btn-${key}`).addEventListener('click', () => {
-        const colorMap = {
-            r: 'red', o: 'orange', y: 'yellow', g: 'green',
-            b: 'blue', i: 'indigo', v: 'violet',
-            w: 'white', k: 'black'
-        };
-        setTextColor(headingElement, colorMap[key]);
+        setTextColor(headingElement, color);
+        updateButtonColors(key);
     });
 });
-// keyboard shortcuts
- document.addEventListener('keydown', (event) => {
-        switch(event.key.toLowerCase()) {
-            case 'r':
-                document.getElementById('color-btn-r').click();
-                break;
-            case 'o':
-                document.getElementById('color-btn-o').click();
-                break;
-            case 'y':
-                document.getElementById('color-btn-y').click();
-                break;
-            case 'g':
-                document.getElementById('color-btn-g').click();
-                break;
-            case 'b':
-                document.getElementById('color-btn-b').click();
-                break;
-            case 'i':
-                document.getElementById('color-btn-i').click();
-                break;
-            case 'v':
-                document.getElementById('color-btn-v').click();
-                break;
-            case 'w':
-                document.getElementById('color-btn-w').click();
-                break;
-            case 'k':
-                document.getElementById('color-btn-k').click();
-                break;
-        }
-    })
+
+// Set up keyboard shortcuts
+document.addEventListener('keydown', (event) => {
+    const key = event.key.toLowerCase();
+    if (colorButtons[key]) {
+        setTextColor(headingElement, colorButtons[key]);
+        updateButtonColors(key);
+    }
+});
+
+// Set default button (black) to white on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateButtonColors('k');
+});

@@ -73,10 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
         'w': 'white', 'k': 'black'
     };
 
+    function updateButtonColors(selectedKey) {
+        // Reset all buttons to default color
+        Object.keys(colorButtons).forEach(key => {
+            document.getElementById(`color-btn-${key}`).className = 'text-[#c9c9c9] active:scale-95 transition-all duration-100';
+        });
+        
+        // Set selected button to white
+        document.getElementById(`color-btn-${selectedKey}`).className = 'text-white active:scale-95 transition-all duration-100';
+    }
+
     Object.entries(colorButtons).forEach(([key, color]) => {
         document.getElementById(`color-btn-${key}`).addEventListener('click', () => {
             currentColor = color;
             updateContent(color);
+            updateButtonColors(key);
         });
     });
 
@@ -86,9 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (colorButtons[key]) {
             currentColor = colorButtons[key];
             updateContent(colorButtons[key]);
+            updateButtonColors(key);
         }
     });
 
     // Initial content load
     updateContent(currentColor);
+    
+    // Set initial button color based on current color
+    const initialKey = Object.entries(colorButtons).find(([key, color]) => color === currentColor)?.[0] || 'k';
+    updateButtonColors(initialKey);
 }); 
