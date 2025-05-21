@@ -6,14 +6,14 @@
     <title>Document</title>
     <link href="../dist/output.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-neutral-50">
     <!-- HEADER-->
 <header
   class="flex justify-between items-center fixed w-full h-10 2xl:h-14 3xl:h-20 4xl:h-28 bg-[#101010] k top-0 px-5"
 >
   <div class="flex font-thin items-center gap-2">
     <h3 class="font-thin text-white text-sm mx-2 shadow-sm shadow-black">
-      Shortcuts
+      Click or Type
     </h3>
     <p
       class="text-white text-sm 2xl:text-base 3xl:text-lg 4xl:text-xl 5xl:text-3xl"
@@ -60,10 +60,13 @@
 </header>
 
 <!--MAIN CONTENT-->
-<div id="app" class="border-2 h-screen border-red-400 flex flex-col items-center justify-center">
-    <h1 class="dummy text-black text-4xl font-bold">Hello World</h1>
+<div id="app" class="space-y-4 border-2 h-screen border-red-400 flex flex-col items-center justify-center">
+    <h1 id="animal-title" class="text-black text-4xl font-bold">Black Panther</h1>
+    <img id="dynamic-image" src="assets/black.png" class="w-64 h-64 object-cover rounded-xl shadow-lg"></img>
+    <a href="details.html?color=black" id="details-button" class=" transition-all active:scale-95 mt-4 px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200 shadow-md">View Details</a>
 </div>
 
+<script src="animalData.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

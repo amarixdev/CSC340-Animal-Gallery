@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Details</title>
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-neutral-50 min-h-screen">
+    <!-- HEADER (same as index.html)-->
+    <header class="flex justify-between items-center fixed w-full h-10 2xl:h-14 3xl:h-20 4xl:h-28 bg-[#101010] k top-0 px-5">
+        <div class="flex font-thin items-center gap-2">
+            <h3 class="font-thin text-white text-sm mx-2 shadow-sm shadow-black">Click or Type</h3>
+            <p class="text-white text-sm 2xl:text-base 3xl:text-lg 4xl:text-xl 5xl:text-3xl">[</p>
+            <div class="flex gap-6 text-sm 2xl:text-base 3xl:text-lg 4xl:text-xl 5xl:text-3xl">
+                <button id="color-btn-r" class="text-[#c9c9c9]"><span class="font-semibold">r</span>: red</button>
+                <button id="color-btn-o" class="text-[#c9c9c9]"><span class="font-semibold">o</span>: orange</button>
+                <button id="color-btn-y" class="text-[#c9c9c9]"><span class="font-semibold">y</span>: yellow</button>
+                <button id="color-btn-g" class="text-[#c9c9c9]"><span class="font-semibold">g</span>: green</button>
+                <button id="color-btn-b" class="text-[#c9c9c9]"><span class="font-semibold">b</span>: blue</button>
+                <button id="color-btn-i" class="text-[#c9c9c9]"><span class="font-semibold">i</span>: indigo</button>
+                <button id="color-btn-v" class="text-[#c9c9c9]"><span class="font-semibold">v</span>: violet</button>
+                <button id="color-btn-w" class="text-[#c9c9c9]"><span class="font-semibold">w</span>: white</button>
+                <button id="color-btn-k" class="text-[#c9c9c9]"><span class="font-semibold">k</span>: black</button>
+            </div>
+            <p class="text-white text-sm 2xl:text-base 3xl:text-lg 4xl:text-xl 5xl:text-3xl">]</p>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <div class="fixed top-12 left-5 z-10 transition-all active:scale-95">
+        <a href="index.html" class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200 shadow-md">
+            <span class="mr-2">←</span> Back
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto pt-20 px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <!-- Image Section -->
+                <div class="md:flex-shrink-0">
+                    <img id="animal-image" class="h-96 w-full md:w-96 object-cover" src="assets/black.png" alt="Animal Image">
+                </div>
+                
+                <!-- Content Section -->
+                <div class="p-8">
+                    <h1 id="animal-name" class="text-4xl font-bold mb-2">Black Panther</h1>
+                    <p id="scientific-name" class="text-gray-500 italic mb-4">Panthera pardus</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-2">Habitat</h2>
+                            <p id="habitat" class="text-gray-700"></p>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-xl font-semibold mb-2">Description</h2>
+                            <p id="description" class="text-gray-700"></p>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-xl font-semibold mb-2">Diet</h2>
+                            <p id="diet" class="text-gray-700"></p>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-xl font-semibold mb-2">Lifespan</h2>
+                            <p id="lifespan" class="text-gray-700"></p>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-xl font-semibold mb-2">Fun Facts</h2>
+                            <ul id="fun-facts" class="list-disc list-inside text-gray-700 space-y-2"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="animalData.js"></script>
+    <script src="details.js"></script>
+</body>
+</html> 
